@@ -1,0 +1,32 @@
+﻿<base:WindowBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM.Forms"
+        xmlns:base="clr-namespace:ARM.Forms.Base"
+        xmlns:ARM="clr-namespace:ARM" x:Class="ARM.Forms.UsersWindow"
+        mc:Ignorable="d"
+        Title="Users" Height="677" Width="1202" Loaded="Window_Loaded" FontSize="14" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <CollectionViewSource x:Key="usersViewSource" />
+    </Window.Resources>
+    <Grid>
+        <DataGrid x:Name="GridUsers" 
+                  AutoGenerateColumns="False" 
+                  EnableRowVirtualization="True"
+                  ItemsSource="{Binding Source={StaticResource usersViewSource}}" Margin="0,24,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="UsersTable_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Логин" Width="2*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="Фамилия" Width="4*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="Имя" Width="3*" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding MiddleName}" Header="Отчество" Width="4*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Menu Height="24" VerticalAlignment="Top">
+            <MenuItem x:Name="ButtonAdd" Header="Добавить" Height="24" Click="ButtonAdd_Click"/>
+            <MenuItem x:Name="ButtonEdit" Header="Редактировать" Click="ButtonEdit_Click"/>
+        </Menu>
+    </Grid>
+</base:WindowBase>

@@ -7,7 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\StudentsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\StudentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\UsersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Forms\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\StudentsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\StudentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\UsersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

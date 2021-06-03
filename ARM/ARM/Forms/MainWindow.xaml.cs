@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ARM.Data;
 
-namespace ARM
+namespace ARM.Forms
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +24,18 @@ namespace ARM
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var win = new UsersWindow();
+            win.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var win = new StudentsWindow();
+            win.Show();
         }
     }
 }
