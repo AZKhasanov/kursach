@@ -16,6 +16,9 @@ namespace ARM.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Speciality> Specialities { get; set; }
+        public DbSet<StudentAction> StudentActions { get; set; }
+        public DbSet<StudentActionType> StudentActionTypes { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -79,6 +82,21 @@ namespace ARM.Data
             modelBuilder.Entity<Department>().Property(p => p.FacultyId).HasColumnName("faculty_id");
             modelBuilder.Entity<Department>().HasOne(p => p.Faculty).WithMany(p => p.Departments)
                 .HasForeignKey(p => p.FacultyId);
+
+            modelBuilder.Entity<StudentAction>().ToTable("student_action", "dbo");
+            modelBuilder.Entity<StudentAction>().Property(p => p.Id).HasColumnName("student_action_id");
+            modelBuilder.Entity<StudentAction>().Property(p => p.TypeId).HasColumnName("student_action_type_id");
+            modelBuilder.Entity<StudentAction>().Property(p => p.StudentId).HasColumnName("student_id");
+            modelBuilder.Entity<StudentAction>().Property(p => p.DateBegin).HasColumnName("student_action_date_begin");
+
+            modelBuilder.Entity<StudentAction>().HasOne(p => p.Student).WithMany(p => p.Actions)
+                .HasForeignKey(p => p.StudentId);
+            modelBuilder.Entity<StudentAction>().HasOne(p => p.Type).WithMany(p => p.Actions)
+                .HasForeignKey(p => p.TypeId);
+
+            modelBuilder.Entity<StudentActionType>().ToTable("student_action_type", "dbo");
+            modelBuilder.Entity<StudentActionType>().Property(p => p.Id).HasColumnName("student_action_type_id");
+            modelBuilder.Entity<StudentActionType>().Property(p => p.Name).HasColumnName("student_action_type_name");
         }
     }
 }

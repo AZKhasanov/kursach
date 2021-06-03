@@ -25,7 +25,6 @@ namespace ARM.Forms
     {
         private ARMDataContext _dataContext = new();
         public CollectionViewSource studentsViewSource;
-        private StudentWindow _studentWindow;
 
         public StudentsWindow()
         {
@@ -75,5 +74,15 @@ namespace ARM.Forms
             }
         }
 
+        private void ButtonChangeState_Click(object sender, RoutedEventArgs e)
+        {
+            var student = (Student)StudentsGrid.CurrentItem;
+            if (student != null)
+            {
+                object[] args = { student.Id };
+                var window = ShowWindow<StudentsActionsWindow>(args);
+                window.Closed += (sender, args) => LoadData();
+            }
+        }
     }
 }

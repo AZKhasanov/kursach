@@ -17,5 +17,7 @@ namespace ARM.Models
         public string MiddleName { get; set; }
         public string PhoneNumber { get; set; }
         public bool IsGroupHead { get; set; }
+
+        public IList<StudentAction> Actions { get; set; }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:base="clr-namespace:ARM.Forms.Base"
         xmlns:local="clr-namespace:ARM.Forms"
         mc:Ignorable="d"
-        Title="Students" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="Студенты" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <CollectionViewSource x:Key="studentsViewSource" />
     </Window.Resources>
@@ -28,7 +28,7 @@
             <MenuItem x:Name="ButtonEdit" Header="Редактировать" Click="ButtonEdit_Click"/>
             <MenuItem x:Name="ButtonDelete" Header="Удалить" Click="ButtonDelete_Click"/>
             <Separator Width="6" Background="#FF464141" BorderBrush="#FF3C3939" OpacityMask="Black"/>
-            <MenuItem x:Name="ButtonChangeState" Header="Поменять статус"/>
+            <MenuItem x:Name="ButtonChangeState" Header="Поменять статус" Click="ButtonChangeState_Click"/>
         </Menu>
 
     </Grid>

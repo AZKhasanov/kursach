@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM.Forms"
         mc:Ignorable="d"
-        Title="Студент" Height="265" Width="497" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Студент(ка)" Height="265" Width="497" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="groupsViewSource" />
     </Window.Resources>
