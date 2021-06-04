@@ -18,6 +18,7 @@ namespace ARM.Data
         public DbSet<Speciality> Specialities { get; set; }
         public DbSet<StudentAction> StudentActions { get; set; }
         public DbSet<StudentActionType> StudentActionTypes { get; set; }
+        public DbSet<StudentPayment> StudentPayments { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -97,6 +98,14 @@ namespace ARM.Data
             modelBuilder.Entity<StudentActionType>().ToTable("student_action_type", "dbo");
             modelBuilder.Entity<StudentActionType>().Property(p => p.Id).HasColumnName("student_action_type_id");
             modelBuilder.Entity<StudentActionType>().Property(p => p.Name).HasColumnName("student_action_type_name");
+
+            modelBuilder.Entity<StudentPayment>().ToTable("student_payment", "dbo");
+            modelBuilder.Entity<StudentPayment>().Property(p => p.Id).HasColumnName("student_payment_id");
+            modelBuilder.Entity<StudentPayment>().Property(p => p.Amount).HasColumnName("student_payment_amount");
+            modelBuilder.Entity<StudentPayment>().Property(p => p.Date).HasColumnName("student_payment_date");
+            modelBuilder.Entity<StudentPayment>().Property(p => p.StudentId).HasColumnName("student_id");
+            modelBuilder.Entity<StudentPayment>().HasOne(p => p.Student).WithMany(p => p.Payments)
+                .HasForeignKey(p => p.StudentId);
         }
     }
 }

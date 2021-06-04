@@ -19,5 +19,6 @@ namespace ARM.Models
         public bool IsGroupHead { get; set; }
 
         public IList<StudentAction> Actions { get; set; }
+        public IList<StudentPayment> Payments { get; set; }
     }
 }

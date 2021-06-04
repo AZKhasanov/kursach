@@ -84,5 +84,16 @@ namespace ARM.Forms
                 window.Closed += (sender, args) => LoadData();
             }
         }
+
+        private void ButtonPayments_Click(object sender, RoutedEventArgs e)
+        {
+            var student = (Student)StudentsGrid.CurrentItem;
+            if (student != null)
+            {
+                object[] args = { student.Id };
+                var window = ShowWindow<StudentsPaymentsWindow>(args);
+                window.Closed += (sender, args) => LoadData();
+            }
+        }
     }
 }

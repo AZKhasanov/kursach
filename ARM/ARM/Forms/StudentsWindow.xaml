@@ -29,6 +29,7 @@
             <MenuItem x:Name="ButtonDelete" Header="Удалить" Click="ButtonDelete_Click"/>
             <Separator Width="6" Background="#FF464141" BorderBrush="#FF3C3939" OpacityMask="Black"/>
             <MenuItem x:Name="ButtonChangeState" Header="Поменять статус" Click="ButtonChangeState_Click"/>
+            <MenuItem x:Name="ButtonPayments" Header="Платежи" Click="ButtonPayments_Click"/>
         </Menu>
 
     </Grid>

@@ -15,7 +15,7 @@ namespace ARM.Models
         public string Title { get; set; }
         public int LearnMonth { get; set; }
         public bool IsActual { get; set; }
-        public int Cost { get; set; }
+        public double Cost { get; set; }
         public IList<Group> Groups { get; set; }
     }
 }

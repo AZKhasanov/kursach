@@ -27,10 +27,16 @@
     <Page Update="Forms\StudentActionWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Forms\StudentsPaymentsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\StudentsActionsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\StudentPaymentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentWindow.xaml">

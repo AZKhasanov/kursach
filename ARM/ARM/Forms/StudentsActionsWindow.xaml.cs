@@ -42,7 +42,7 @@ namespace ARM.Forms
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            object[] args = { null };
+            object[] args = { null, _studentId };
             var window = ShowWindow<StudentActionWindow>(args);
             window.Closed += (sender, args) => LoadData();
         }
@@ -52,7 +52,7 @@ namespace ARM.Forms
             var studentAction = (StudentAction)StudentsGrid.CurrentItem;
             if (studentAction != null)
             {
-                object[] args = { studentAction.Id };
+                object[] args = { studentAction.Id, _studentId };
                 var window = ShowWindow<StudentActionWindow>(args);
                 window.Closed += (sender, args) => LoadData();
             }

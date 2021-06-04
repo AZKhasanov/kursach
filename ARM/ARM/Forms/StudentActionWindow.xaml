@@ -12,10 +12,10 @@
     <Grid>
         <ComboBox SelectedValue="{Binding TypeId, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource typesViewSource}}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="99,57,0,0" VerticalAlignment="Top" Width="354"/>
 
-        <DatePicker SelectedDate="{Binding DateBegin, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="99,87,0,0" VerticalAlignment="Top" Width="354" />
+        <DatePicker SelectedDate="{Binding DateBegin, Mode=TwoWay}" SelectedDateFormat="Short" HorizontalAlignment="Left" Height="24" Margin="99,87,0,0" VerticalAlignment="Top" Width="354" />
         
-        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="219,189,0,0" VerticalAlignment="Top" Width="106" />
-        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="342,189,0,0" VerticalAlignment="Top" Width="111" />
+        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="219,189,0,0" VerticalAlignment="Top" Width="106" Click="ButtonSave_Click" />
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="342,189,0,0" VerticalAlignment="Top" Width="111" Click="ButtonCancel_Click" />
 
         <Label Content="Тип" HorizontalAlignment="Left" Margin="31,57,0,0" VerticalAlignment="Top"/>
         <Label Content="Дата" HorizontalAlignment="Left" Margin="31,87,0,0" VerticalAlignment="Top"/>
