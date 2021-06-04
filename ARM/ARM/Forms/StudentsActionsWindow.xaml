@@ -11,13 +11,16 @@
         <CollectionViewSource x:Key="studentActionsViewSource" />
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="StudentsGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentActionsViewSource}}" Margin="0,24,0,0">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
-                <DataGridTextColumn Binding="{Binding Path=Type.Name}" Header="Тип" Width="4*"/>
-                <DataGridTextColumn Binding="{Binding Path=DateBegin}" Header="Дата" Width="3*" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <StackPanel x:Name="StackPanel">
+            <DataGrid x:Name="GridStudents" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentActionsViewSource}}" Margin="0,24,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Type.Name}" Header="Тип" Width="4*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DateBegin}" Header="Дата" Width="3*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox Text="TextBox" TextWrapping="Wrap" Width="120"/>
+        </StackPanel>
         <Menu Height="24" VerticalAlignment="Top">
             <MenuItem x:Name="ButtonAdd" Header="Добавить" Height="24" Click="ButtonAdd_Click"/>
             <MenuItem x:Name="ButtonEdit" Header="Редактировать" Click="ButtonEdit_Click"/>

@@ -95,5 +95,16 @@ namespace ARM.Forms
                 window.Closed += (sender, args) => LoadData();
             }
         }
+
+        private void ButtonReport_Click(object sender, RoutedEventArgs e)
+        {
+            var student = (Student)StudentsGrid.CurrentItem;
+            if (student != null)
+            {
+                object[] args = { student.Id };
+                var window = ShowWindow<StudentActionsReportWindow>(args);
+                window.Closed += (sender, args) => LoadData();
+            }
+        }
     }
 }

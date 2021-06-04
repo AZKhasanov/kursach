@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Projects\Pets\Kursach\ARM\ARM\App.xaml
-91229926042
+101350346617
 
-261395064264
-232-2117637374
-Forms\MainWindow.xaml;Forms\StudentActionWindow.xaml;Forms\StudentPaymentWindow.xaml;Forms\StudentsActionsWindow.xaml;Forms\StudentsPaymentsWindow.xaml;Forms\StudentsWindow.xaml;Forms\StudentWindow.xaml;Forms\UsersWindow.xaml;Forms\UserWindow.xaml;
+27-1113804241
+2331352936434
+Forms\MainWindow.xaml;Forms\StudentActionsReportWindow.xaml;Forms\StudentActionWindow.xaml;Forms\StudentPaymentWindow.xaml;Forms\StudentsActionsWindow.xaml;Forms\StudentsPaymentsWindow.xaml;Forms\StudentsWindow.xaml;Forms\StudentWindow.xaml;Forms\UsersWindow.xaml;Forms\UserWindow.xaml;
 
 False
 

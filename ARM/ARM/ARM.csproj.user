@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\StudentActionsReportWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Forms\StudentActionWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Forms\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\StudentActionsReportWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentActionWindow.xaml">

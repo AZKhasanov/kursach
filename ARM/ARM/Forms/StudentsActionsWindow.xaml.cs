@@ -49,7 +49,7 @@ namespace ARM.Forms
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            var studentAction = (StudentAction)StudentsGrid.CurrentItem;
+            var studentAction = (StudentAction)GridStudents.CurrentItem;
             if (studentAction != null)
             {
                 object[] args = { studentAction.Id, _studentId };
@@ -65,12 +65,12 @@ namespace ARM.Forms
             _dataContext.Groups.Load();
 
             studentActionsViewSource.Source = _dataContext.StudentActions.Where(a => a.StudentId == _studentId).ToList();
-            StudentsGrid.UpdateLayout();
+            GridStudents.UpdateLayout();
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            var studentAction = (StudentAction)StudentsGrid.CurrentItem;
+            var studentAction = (StudentAction)GridStudents.CurrentItem;
             if (studentAction != null && MessageBox.Show(this, "Вы действительно хотите удалить запись?", "Удалить", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 _dataContext.StudentActions.Remove(studentAction);
