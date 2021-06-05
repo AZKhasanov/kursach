@@ -111,7 +111,7 @@ namespace ARM.Forms {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ARM;V1.0.0.0;component/forms/mainwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ARM;component/forms/mainwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Forms\MainWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

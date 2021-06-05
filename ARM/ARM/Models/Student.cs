@@ -18,6 +18,8 @@ namespace ARM.Models
         public string PhoneNumber { get; set; }
         public bool IsGroupHead { get; set; }
 
+        public string FullName => $"{LastName} {Name} {MiddleName}";
+
         public IList<StudentAction> Actions { get; set; }
         public IList<StudentPayment> Payments { get; set; }
     }

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ARM.Data;
 using ARM.Forms.Base;
 using ARM.Models;
+using Castle.Core.Internal;
 
 namespace ARM.Forms
 {
@@ -24,11 +25,13 @@ namespace ARM.Forms
     public partial class StudentsWindow : WindowBase
     {
         public CollectionViewSource studentsViewSource;
+        public CollectionViewSource groupsViewSource;
 
         public StudentsWindow()
         {
             InitializeComponent();
             studentsViewSource = (CollectionViewSource)FindResource(nameof(studentsViewSource));
+            groupsViewSource = (CollectionViewSource) FindResource(nameof(groupsViewSource));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -60,6 +63,7 @@ namespace ARM.Forms
             dataCtx.Groups.Load();
             dataCtx.Specialities.Load();
             studentsViewSource.Source = dataCtx.Students.ToList();
+            groupsViewSource.Source = dataCtx.Groups.ToList();
             StudentsGrid.UpdateLayout();
         }
 
@@ -107,5 +111,27 @@ namespace ARM.Forms
                 window.Closed += (sender, args) => LoadData();
             }
         }
+
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            ARMDataContext dataCtx = new();
+
+            IQueryable<Student> query = dataCtx.Students.AsQueryable();
+
+            if (!TextBoxFIO.Text.IsNullOrEmpty())
+                query = query.Where(s => (s.LastName + " " + s.Name + " " + s.MiddleName).Contains(TextBoxFIO.Text));
+
+            if (ComboboxGroup.SelectedValue != null);
+            query = query.Where(s => s.GroupId == (int) ComboboxGroup.SelectedValue);
+                
+            studentsViewSource.Source = query.ToList();
+
+        }
+
+        private void ButtonClear_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+        }
     }
 }
+

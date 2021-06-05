@@ -27,9 +27,9 @@ namespace ARM.Forms
             InitializeComponent();
 
 
-/*            var loginWin = new LoginWindow();
+            var loginWin = new LoginWindow();
             if(!(loginWin.ShowDialog() ?? false))
-                this.Close();*/
+                this.Close();
         }
 
         private void ButtonUsers_Click(object sender, RoutedEventArgs e)

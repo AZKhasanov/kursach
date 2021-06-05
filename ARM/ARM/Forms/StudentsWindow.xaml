@@ -9,16 +9,17 @@
         Title="Студенты" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <CollectionViewSource x:Key="studentsViewSource" />
+        <CollectionViewSource x:Key="groupsViewSource" />
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="StudentsGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentsViewSource}}" SelectionMode="Single" Margin="0,24,0,0">
+        <DataGrid x:Name="StudentsGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentsViewSource}}" SelectionMode="Single" Margin="0,91,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Path=LastName}" Header="Фамилия" Width="4*"/>
                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Имя" Width="3*" />
                 <DataGridTextColumn Binding="{Binding Path=MiddleName}" Header="Отчество" Width="4*" />
                 <DataGridTextColumn Binding="{Binding Group.Name}" Header="Группа" Width="2*" />
-                <DataGridTextColumn Binding="{Binding Group.Speciality.Name}" Header="Группа" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Group.Speciality.Name}" Header="Специальность" Width="2*" />
                 <DataGridTextColumn Binding="{Binding Path=PhoneNumber}" Header="Телефон" Width="2*" />
                 <DataGridCheckBoxColumn Binding="{Binding Path=IsGroupHead}" Header="Староста" Width="2*"/>
             </DataGrid.Columns>
@@ -32,6 +33,12 @@
             <MenuItem x:Name="ButtonPayments" Header="Платежи" Click="ButtonPayments_Click"/>
             <MenuItem x:Name="ButtonReport" Header="Отчёт" Click="ButtonReport_Click"/>
         </Menu>
+        <TextBox x:Name="TextBoxFIO" HorizontalAlignment="Left" Margin="72,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" Height="22"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top"/>
+        <Label Content="Группа" HorizontalAlignment="Left" Margin="352,29,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboboxGroup" ItemsSource="{Binding Source={StaticResource groupsViewSource}}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="417,31,0,0" VerticalAlignment="Top" Width="314" Height="22"/>
+        <Button x:Name="ButtonClear" Content="Сбросить" HorizontalAlignment="Left" Margin="704,66,0,0" VerticalAlignment="Top" Width="74" Click="ButtonClear_Click"/>
+        <Button x:Name="ButtonSearch" Content="Поиск" HorizontalAlignment="Left" Margin="613,66,0,0" VerticalAlignment="Top" Width="74" Click="ButtonSearch_Click"/>
 
     </Grid>
 </base:WindowBase>
