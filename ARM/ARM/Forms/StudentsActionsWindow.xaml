@@ -19,7 +19,6 @@
                     <DataGridTextColumn Binding="{Binding Path=DateBegin}" Header="Дата" Width="3*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBox Text="TextBox" TextWrapping="Wrap" Width="120"/>
         </StackPanel>
         <Menu Height="24" VerticalAlignment="Top">
             <MenuItem x:Name="ButtonAdd" Header="Добавить" Height="24" Click="ButtonAdd_Click"/>

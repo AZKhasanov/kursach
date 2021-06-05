@@ -82,10 +82,11 @@ namespace ARM.Forms
         private void SetTitle()
         {
             var dataCtx = new ARMDataContext();
+            dataCtx.Groups.Load();
 
             var student = dataCtx.Students.SingleOrDefault(s => s.Id == _studentId);
 
-            this.Title = $"Студент(ка) {student.LastName} {student.Name} {student.MiddleName}. Группа {student.Group.Title}";
+            this.Title = $"Студент(ка) {student.LastName} {student.Name} {student.MiddleName}. Группа {student?.Group?.Title}";
         }
 
     }
