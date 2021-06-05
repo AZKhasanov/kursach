@@ -1,0 +1,24 @@
+﻿<Window x:Class="ARM.Forms.DepartmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM.Forms"
+        mc:Ignorable="d"
+        Title="Группа" Height="232" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="facultiesViewSource" />
+    </Window.Resources>
+    <Grid>
+        <TextBox Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="126,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" />
+        <TextBox Text="{Binding Title, Mode=TwoWay}" HorizontalAlignment="Left" Height="24" Margin="126,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" />
+        <ComboBox SelectedValue="{Binding FacultyId, Mode=TwoWay}"  ItemsSource="{Binding Source={StaticResource facultiesViewSource}}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="126,91,0,0" VerticalAlignment="Top" Width="354"/>
+
+        <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="245,164,0,0" VerticalAlignment="Top" Width="106" Click="ButtonSave_Click" />
+        <Button x:Name="ButtonCancel" Content="Отмена" HorizontalAlignment="Left" Margin="368,164,0,0" VerticalAlignment="Top" Width="111" Click="ButtonCancel_Click" />
+
+        <Label Content="Обозначение" HorizontalAlignment="Left" Margin="23,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="23,62,0,0" VerticalAlignment="Top"/>
+        <Label Content="Факультет" HorizontalAlignment="Left" Margin="23,91,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

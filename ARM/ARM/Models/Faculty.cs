@@ -11,8 +11,6 @@ namespace ARM.Models
     {
         public string Name { get; set; }
         public string Title { get; set; }
-        public int FacultyDecaneId { get; set; }
-        public Employee FacultyDecane { get; set; }
         public IList<Department> Departments { get; set; }
     }
 }

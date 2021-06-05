@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM.Forms"
         mc:Ignorable="d"
-        Title="StudentActionsReportWindow" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="StudentActionsReportWindow" Height="625" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <CollectionViewSource x:Key="actionsViewSource" />
+        <CollectionViewSource x:Key="paymentsViewSource" />
+    </Window.Resources>
     <Grid x:Name="GridPanel">
         <Menu Height="24" VerticalAlignment="Top">
             <MenuItem x:Name="ButtonPrint" Header="Печать" Height="24" Click="ButtonPrint_Click" />
@@ -13,12 +17,30 @@
         <Grid x:Name="GridReport">
             <Label x:Name="LabelStudentFIO" Content="Студент(ка): " HorizontalAlignment="Left" Margin="24,26,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
             <Label x:Name="LabelStudentSpeciality" Content="Специальность: " HorizontalAlignment="Left" Margin="24,56,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
-            <Label x:Name="LabelStudentGroup" Content="Группа: " HorizontalAlignment="Left" Margin="24,86,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
+            <Label x:Name="LabelStudentGroup" Content="Группа: " HorizontalAlignment="Left" Margin="24,86,0,0" VerticalAlignment="Top" Width="430" FontWeight="Bold"/>
             <Label x:Name="LabelStudentDepartment" Content="Кафедра: " HorizontalAlignment="Left" Margin="24,116,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
             <Label x:Name="LabelStudentFaculty" Content="Факультет: "  HorizontalAlignment="Left" Margin="24,146,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
             <Label x:Name="LabelStudentStatus" Content="Статус: "  HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
-            <Label x:Name="LabelStudentSpecialityCost" Content="Стоимость обучения: "  HorizontalAlignment="Left" Margin="24,206,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
-            <Label x:Name="LabelStudentPayments" Content="Оплачено за обучение: "  HorizontalAlignment="Left" Margin="24,236,0,0" VerticalAlignment="Top" Width="713" FontWeight="Bold"/>
+            <Label x:Name="LabelStudentSpecialityCost" Content="Стоимость обучения: "  HorizontalAlignment="Left" Margin="24,206,0,0" VerticalAlignment="Top" Width="376" FontWeight="Bold"/>
+            <Label x:Name="LabelStudentPayments" Content="Оплачено за обучение: "  HorizontalAlignment="Left" Margin="477,206,0,0" VerticalAlignment="Top" Width="313" FontWeight="Bold"/>
+            <Label x:Name="LabelStudentIsGroupHead" Content="Староста: "  HorizontalAlignment="Left" Margin="477,86,0,0" VerticalAlignment="Top" Width="280" FontWeight="Bold"/>
+
+            <Label Content="Активность студента(ки): "  HorizontalAlignment="Left" VerticalAlignment="Top" Width="713" FontWeight="Bold" Margin="1,243,0,0"/>
+            <DataGrid x:Name="GridStudents" IsReadOnly="True" AutoGenerateColumns="False" VerticalAlignment="Top" ItemsSource="{Binding Source={StaticResource actionsViewSource}}" Margin="0,269,0,0" Height="148">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Type.Name}" Header="Тип" Width="4*"/>
+                    <DataGridTextColumn Binding="{Binding Path=DateBegin}" Header="Дата" Width="3*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="История платежей: "  HorizontalAlignment="Left" VerticalAlignment="Top" Width="713" FontWeight="Bold" Height="25" Margin="1,432,0,0"/>
+            <DataGrid x:Name="GridPayments" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource paymentsViewSource}}" Margin="0,458,0,0" Height="150" VerticalAlignment="Stretch" VerticalContentAlignment="Top">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding Path=Amount}" Header="Сумма" Width="4*"/>
+                    <DataGridTextColumn Binding="{Binding Path=Date}" Header="Дата" Width="3*" />
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>

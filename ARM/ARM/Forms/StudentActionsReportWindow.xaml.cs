@@ -22,14 +22,17 @@ namespace ARM.Forms
     /// </summary>
     public partial class StudentActionsReportWindow : Window
     {
-        private ARMDataContext _dataContext = new();
         private int _studentId;
+        private CollectionViewSource actionsViewSource;
+        private CollectionViewSource paymentsViewSource;
 
         public StudentActionsReportWindow(int studentId)
         {
             InitializeComponent();
 
             _studentId = studentId;
+            actionsViewSource = (CollectionViewSource) FindResource(nameof(actionsViewSource));
+            paymentsViewSource = (CollectionViewSource) FindResource(nameof(paymentsViewSource));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -39,14 +42,20 @@ namespace ARM.Forms
 
         private void LoadData()
         {
-            _dataContext.Students.Load();
-            _dataContext.Groups.Load();
-            _dataContext.Specialities.Load();
-            _dataContext.Departments.Load();
-            _dataContext.Faculties.Load();
-            _dataContext.StudentActions.Load();
+            var dataCtx = new ARMDataContext();
+            dataCtx.Students.Load();
+            dataCtx.Groups.Load();
+            dataCtx.Specialities.Load();
+            dataCtx.Departments.Load();
+            dataCtx.Faculties.Load();
+            dataCtx.StudentActions.Load();
+            dataCtx.StudentPayments.Load();
+            dataCtx.StudentActionTypes.Load();
 
-            var student = _dataContext.Students.SingleOrDefault(s => s.Id == _studentId);
+            var student = dataCtx.Students.SingleOrDefault(s => s.Id == _studentId);
+
+            actionsViewSource.Source = dataCtx.StudentActions.ToList();
+            paymentsViewSource.Source = dataCtx.StudentPayments.ToList();
 
             this.Title = $"Отчёт по студенту(ке) {student.LastName} {student.Name} {student.MiddleName}";
 
@@ -56,15 +65,16 @@ namespace ARM.Forms
             LabelStudentGroup.Content += $"{student?.Group?.Title}";
             LabelStudentFaculty.Content += $"{student?.Group?.Speciality?.Department?.Faculty?.Title}";
             LabelStudentSpecialityCost.Content += $"{student?.Group?.Speciality?.Cost}";
+            LabelStudentIsGroupHead.Content += student.IsGroupHead ? "Да" : "Нет";
 
-            var studentAction = _dataContext.StudentActions
+            var studentAction = dataCtx.StudentActions
                 .Where(a => a.StudentId == _studentId)
                 .OrderByDescending(a => a.DateBegin)
                 .FirstOrDefault();
 
             LabelStudentStatus.Content += $"{studentAction.Type} {studentAction.DateBegin}";
 
-            var payments = _dataContext.StudentPayments
+            var payments = dataCtx.StudentPayments
                 .Where(p => p.StudentId == _studentId)
                 .Select(p => p.Amount)
                 .Sum();

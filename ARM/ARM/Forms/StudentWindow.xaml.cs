@@ -50,5 +50,17 @@ namespace ARM.Forms
             _dataContext.Attach(student);
             _dataContext.SaveChanges();
         }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var student = (Student)DataContext;
+            var hasGroupHead = _dataContext.Students.Any(s => s.IsGroupHead && s.GroupId == student.GroupId);
+            CheckBox.IsEnabled = !hasGroupHead;
+        }
     }
 }

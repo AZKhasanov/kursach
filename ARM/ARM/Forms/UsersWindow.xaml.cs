@@ -23,7 +23,6 @@ namespace ARM.Forms
     /// </summary>
     public partial class UsersWindow : WindowBase
     {
-        private ARMDataContext _dataContext => new ARMDataContext();
         private CollectionViewSource usersViewSource;
 
         public UsersWindow()
@@ -40,12 +39,12 @@ namespace ARM.Forms
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            usersViewSource.Source = _dataContext.Users.ToList();
+            var dataCtx = new ARMDataContext();
+            usersViewSource.Source = dataCtx.Users.ToList();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            _dataContext.Dispose();
 
             base.OnClosing(e);
         }

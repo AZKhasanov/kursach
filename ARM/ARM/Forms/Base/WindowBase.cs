@@ -20,7 +20,7 @@ namespace ARM.Forms.Base
             {
                 var ctors = winType.GetConstructors();
                 foreach (var ctor in ctors)
-                    if (ctor.GetParameters().Length == args.Length)
+                    if (ctor.GetParameters().Length == (args?.Length ?? 0))
                     {
                         window = (Window)ctor.Invoke(args);
                         window.Closed += (sender, args) =>

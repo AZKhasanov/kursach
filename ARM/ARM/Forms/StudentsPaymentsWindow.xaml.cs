@@ -23,7 +23,6 @@ namespace ARM.Forms
     /// </summary>
     public partial class StudentsPaymentsWindow : WindowBase
     {
-        private ARMDataContext _dataContext = new();
         public CollectionViewSource studentPaymentsViewSource;
         private int? _studentId;
 
@@ -60,27 +59,31 @@ namespace ARM.Forms
 
         private void LoadData()
         {
-            _dataContext.Students.Load();
-            _dataContext.Groups.Load();
+            var dataCtx = new ARMDataContext();
+            dataCtx.Students.Load();
+            dataCtx.Groups.Load();
 
-            studentPaymentsViewSource.Source = _dataContext.StudentPayments.Where(a => a.StudentId == _studentId).ToList();
+            studentPaymentsViewSource.Source = dataCtx.StudentPayments.Where(a => a.StudentId == _studentId).ToList();
             StudentsGrid.UpdateLayout();
         }
 
         private void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-/*            var studentAction = (StudentAction)StudentsGrid.CurrentItem;
-            if (studentAction != null && MessageBox.Show(this, "Вы действительно хотите удалить запись?", "Удалить", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            var payment = (StudentPayment)StudentsGrid.CurrentItem;
+            if (payment != null && MessageBox.Show(this, "Вы действительно хотите удалить запись?", "Удалить", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                _dataContext.StudentActions.Remove(studentAction);
-                _dataContext.SaveChanges();
+                var dataCtx = new ARMDataContext();
+                dataCtx.StudentPayments.Remove(payment);
+                dataCtx.SaveChanges();
                 LoadData();
-            }*/
+            }
         }
 
         private void SetTitle()
         {
-            var student = _dataContext.Students.SingleOrDefault(s => s.Id == _studentId);
+            var dataCtx = new ARMDataContext();
+
+            var student = dataCtx.Students.SingleOrDefault(s => s.Id == _studentId);
 
             this.Title = $"Студент(ка) {student.LastName} {student.Name} {student.MiddleName}. Группа {student.Group.Title}";
         }

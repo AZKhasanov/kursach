@@ -23,7 +23,6 @@ namespace ARM.Forms
     /// </summary>
     public partial class StudentsActionsWindow : WindowBase
     {
-        private ARMDataContext _dataContext = new();
         public CollectionViewSource studentActionsViewSource;
         private int? _studentId;
 
@@ -60,11 +59,12 @@ namespace ARM.Forms
 
         private void LoadData()
         {
-            _dataContext.StudentActionTypes.Load();
-            _dataContext.Students.Load();
-            _dataContext.Groups.Load();
+            var dataCtx = new ARMDataContext();
+            dataCtx.StudentActionTypes.Load();
+            dataCtx.Students.Load();
+            dataCtx.Groups.Load();
 
-            studentActionsViewSource.Source = _dataContext.StudentActions.Where(a => a.StudentId == _studentId).ToList();
+            studentActionsViewSource.Source = dataCtx.StudentActions.Where(a => a.StudentId == _studentId).ToList();
             GridStudents.UpdateLayout();
         }
 
@@ -73,15 +73,18 @@ namespace ARM.Forms
             var studentAction = (StudentAction)GridStudents.CurrentItem;
             if (studentAction != null && MessageBox.Show(this, "Вы действительно хотите удалить запись?", "Удалить", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                _dataContext.StudentActions.Remove(studentAction);
-                _dataContext.SaveChanges();
+                var dataCtx = new ARMDataContext();
+                dataCtx.StudentActions.Remove(studentAction);
+                dataCtx.SaveChanges();
                 LoadData();
             }
         }
 
         private void SetTitle()
         {
-            var student = _dataContext.Students.SingleOrDefault(s => s.Id == _studentId);
+            var dataCtx = new ARMDataContext();
+
+            var student = dataCtx.Students.SingleOrDefault(s => s.Id == _studentId);
 
             this.Title = $"Студент(ка) {student.LastName} {student.Name} {student.MiddleName}. Группа {student.Group.Title}";
         }

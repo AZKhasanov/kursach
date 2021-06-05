@@ -15,7 +15,7 @@
         <DataGrid x:Name="GridUsers" 
                   AutoGenerateColumns="False" 
                   EnableRowVirtualization="True"
-                  ItemsSource="{Binding Source={StaticResource usersViewSource}}" Margin="0,24,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="UsersTable_SelectionChanged">
+                  ItemsSource="{Binding Source={StaticResource usersViewSource}}" Margin="0,24,0,0" HorizontalContentAlignment="Center" SelectionMode="Single" VerticalContentAlignment="Center" SelectionChanged="UsersTable_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Логин" Width="2*" IsReadOnly="True"/>

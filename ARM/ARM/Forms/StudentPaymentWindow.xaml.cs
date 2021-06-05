@@ -73,5 +73,9 @@ namespace ARM.Forms
         {
         }
 
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

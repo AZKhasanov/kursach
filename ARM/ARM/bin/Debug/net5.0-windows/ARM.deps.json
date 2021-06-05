@@ -11,7 +11,9 @@
           "EntityFramework": "6.4.4",
           "FastReport.OpenSource": "2021.3.4",
           "Microsoft.EntityFrameworkCore": "5.0.6",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.6",
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.6",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6"
         },
         "runtime": {

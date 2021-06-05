@@ -11,7 +11,7 @@
         <CollectionViewSource x:Key="studentPaymentsViewSource" />
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="StudentsGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentPaymentsViewSource}}" Margin="0,24,0,0">
+        <DataGrid x:Name="StudentsGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentPaymentsViewSource}}" SelectionMode="Single" Margin="0,24,0,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
                 <DataGridTextColumn Binding="{Binding Path=Amount}" Header="Сумма" Width="4*"/>

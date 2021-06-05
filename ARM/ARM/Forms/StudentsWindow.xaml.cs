@@ -23,7 +23,6 @@ namespace ARM.Forms
     /// </summary>
     public partial class StudentsWindow : WindowBase
     {
-        private ARMDataContext _dataContext = new();
         public CollectionViewSource studentsViewSource;
 
         public StudentsWindow()
@@ -57,9 +56,10 @@ namespace ARM.Forms
 
         private void LoadData()
         {
-            _dataContext.Groups.Load();
-            _dataContext.Specialities.Load();
-            studentsViewSource.Source = _dataContext.Students.ToList();
+            var dataCtx = new ARMDataContext();
+            dataCtx.Groups.Load();
+            dataCtx.Specialities.Load();
+            studentsViewSource.Source = dataCtx.Students.ToList();
             StudentsGrid.UpdateLayout();
         }
 
@@ -68,8 +68,9 @@ namespace ARM.Forms
             var student = (Student)StudentsGrid.CurrentItem;
             if (student != null && MessageBox.Show(this, "Вы действительно хотите удалить запись?", "Удалить", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                _dataContext.Students.Remove(student);
-                _dataContext.SaveChanges();
+                var dataCtx = new ARMDataContext();
+                dataCtx.Students.Remove(student);
+                dataCtx.SaveChanges();
                 LoadData();
             }
         }

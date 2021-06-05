@@ -14,5 +14,6 @@ namespace ARM.Models
         public int FacultyId { get; set; }
         public Faculty Faculty { get; set; }
         public IList<Speciality> Specialities { get; set; }
+        public IList<Employee> Employees { get; set; }
     }
 }

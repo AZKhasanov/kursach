@@ -63,7 +63,7 @@ namespace ARM.Forms
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
     }
 }

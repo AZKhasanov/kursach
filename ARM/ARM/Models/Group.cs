@@ -11,6 +11,8 @@ namespace ARM.Models
     {
         public int SpecialityId { get; set; }
         public Speciality Speciality { get; set; }
+        public int? CuratorId { get; set; }
+        public Employee Curator { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
         public DateTime DateBegin { get; set; }

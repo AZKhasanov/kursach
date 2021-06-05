@@ -8,14 +8,60 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Forms\2.png" />
+    <None Remove="Forms\department.jpg" />
+    <None Remove="Forms\employees.jpeg" />
+    <None Remove="Forms\faculties.png" />
+    <None Remove="Forms\groups.jpg" />
+    <None Remove="Forms\specialities.jpg" />
+    <None Remove="Forms\student.jpg" />
+    <None Remove="Forms\users.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="FastReport.OpenSource" Version="2021.3.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Forms\department.jpg" />
+    <Resource Include="Forms\employees.jpeg" />
+    <Resource Include="Forms\faculties.png" />
+    <Resource Include="Forms\groups.jpg" />
+    <Resource Include="Forms\specialities.jpg" />
+    <Resource Include="Forms\student.jpg" />
+    <Resource Include="Forms\users.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Forms\FacultiesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\DepartmentsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\GroupsWindow - Copy - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>GroupsWindow.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\GroupsWindow - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>GroupsWindow.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\FacultyWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\DepartmentWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\EmployeeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Forms\StudentsPaymentsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,9 +71,39 @@
     <Compile Update="Forms\StudentPaymentWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Forms\SpecialitiesWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\SpecialityWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Forms\FacultiesWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\FacultyWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\DepartmentsWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\DepartmentWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\EmployeesWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\EmployeeWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\StudentsPaymentsWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -37,6 +113,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentPaymentWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\SpecialitiesWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\SpecialityWindow.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

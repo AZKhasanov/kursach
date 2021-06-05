@@ -12,7 +12,7 @@
     </Window.Resources>
     <Grid>
         <StackPanel x:Name="StackPanel">
-            <DataGrid x:Name="GridStudents" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentActionsViewSource}}" Margin="0,24,0,0">
+            <DataGrid x:Name="GridStudents" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource studentActionsViewSource}}" SelectionMode="Single" Margin="0,24,0,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
                     <DataGridTextColumn Binding="{Binding Path=Type.Name}" Header="Тип" Width="4*"/>

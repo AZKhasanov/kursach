@@ -1,0 +1,32 @@
+﻿<base:WindowBase x:Class="ARM.Forms.SpecialititesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:base="clr-namespace:ARM.Forms.Base"
+        xmlns:local="clr-namespace:ARM.Forms"
+        mc:Ignorable="d"
+        Title="Студенты" Height="450" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <CollectionViewSource x:Key="specialitiesViewSource" />
+    </Window.Resources>
+    <Grid>
+        <DataGrid x:Name="GridSpeciality" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource specialitiesViewSource}}" SelectionMode="Single" Margin="0,24,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Обозначение" Width="4*"/>
+                <DataGridTextColumn Binding="{Binding Path=Title}" Header="Название" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Path=LearnMonth}" Header="Срок обучения(мес.)" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Department.Name}" Header="Кафедра" Width="2*" />
+                <DataGridCheckBoxColumn Binding="{Binding IsActual}" Header="Актуальность" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Path=Cost}" Header="Стоимость обучения" Width="3*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Menu Height="24" VerticalAlignment="Top">
+            <MenuItem x:Name="ButtonAdd" Header="Добавить" Height="24" Click="ButtonAdd_Click"/>
+            <MenuItem x:Name="ButtonEdit" Header="Редактировать" Click="ButtonEdit_Click"/>
+            <MenuItem x:Name="ButtonDelete" Header="Удалить" Click="ButtonDelete_Click"/>
+        </Menu>
+
+    </Grid>
+</base:WindowBase>

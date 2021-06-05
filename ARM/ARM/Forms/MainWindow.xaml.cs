@@ -13,29 +13,58 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ARM.Data;
+using ARM.Forms.Base;
 
 namespace ARM.Forms
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : WindowBase
     {
         public MainWindow()
         {
             InitializeComponent();
+
+
+/*            var loginWin = new LoginWindow();
+            if(!(loginWin.ShowDialog() ?? false))
+                this.Close();*/
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonUsers_Click(object sender, RoutedEventArgs e)
         {
-            var win = new UsersWindow();
-            win.Show();
+            ShowWindow<UsersWindow>();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonStudents_Click(object sender, RoutedEventArgs e)
         {
-            var win = new StudentsWindow();
-            win.Show();
+            ShowWindow<StudentsWindow>();
+        }
+
+        private void ButtonGroups_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow<GroupsWindow>();
+        }
+
+        private void ButtonFaculties_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow<FacultiesWindow>();
+        }
+
+        private void ButtonSpecialities_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow<SpecialititesWindow>();
+        }
+
+        private void ButtonDepartments_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow<DepartmentsWindow>();
+        }
+
+        private void ButtonEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            ShowWindow<EmployeesWindow>();
         }
     }
 }

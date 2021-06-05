@@ -13,5 +13,6 @@ namespace ARM
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

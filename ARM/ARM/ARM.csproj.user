@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\GroupsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\GroupWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Forms\StudentActionsReportWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -24,6 +33,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Forms\FacultiesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\DepartmentsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\EmployeesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\GroupsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\FacultyWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\DepartmentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\GroupWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -39,10 +75,16 @@
     <Page Update="Forms\StudentsActionsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Forms\SpecialitiesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\StudentsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentPaymentWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\SpecialityWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\StudentWindow.xaml">
